@@ -100,6 +100,11 @@ if [ ! -e $HOME/go/bin/nuclei ]; then
    go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 fi
 
+if [ ! -e $HOME/go/bin/ffuf ]; then
+   installBanner "FFUF"
+   go install github.com/ffuf/ffuf@latest
+fi
+
 # Wordlist
 #wget https://raw.githubusercontent.com/internetwache/CT_subdomains/master/top-100000.txt -O /tmp/ct_temp.txt
 

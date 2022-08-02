@@ -9,4 +9,5 @@ mkdir -p $DOMAIN_PATH
 
 #./subdomain_enumeration.sh $DOMAIN
 #./httprobe.sh $SUBDOMAIN_PATH $DOMAIN_PATH
-./nuclei.sh $SERVER_PATH $DOMAIN_PATH
+#./nuclei.sh $SERVER_PATH $DOMAIN_PATH
+./sensitive_file.sh $SERVER_PATH $DOMAIN_PATH
