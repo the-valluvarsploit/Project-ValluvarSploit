@@ -83,11 +83,21 @@ if [ ! -e $HOME/go/bin/anew ]; then
    go install -v github.com/tomnomnom/anew@latest
 fi
 
+# HTTPROBE
+if [ ! -e $HOME/go/bin/httprobe ]; then
+   installBanner "HTTPROBE"
+   go install github.com/tomnomnom/httprobe@latest
+fi
+
+
 if [ ! -e $HOME/go/bin/nuclei ]; then
    installBanner "Nuclei Engine"
    go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 fi
 
 # Wordlist
-wget https://raw.githubusercontent.com/internetwache/CT_subdomains/master/top-100000.txt -O $TOOLS_PATH/ct_subdomains.txt
+wget https://raw.githubusercontent.com/internetwache/CT_subdomains/master/top-100000.txt -O /tmp/ct_temp.txt
+
+cat /tmp/ct_temp.txt | cut -d"," -f 2 > $TOOLS_PATH/ct_subdomains.txt
+
 cp wordlist/top-vulnerable-subdomain-names.lst $TOOLS_PATH/
