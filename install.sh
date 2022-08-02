@@ -10,7 +10,9 @@ installBanner(){
    printf "${YELLOW}\n[+] Installing $tool...${RESET}\n"
 }
 
-apt install unzip
+apt install unzip -y
+apt install gcc -y
+apt install make -y
 
 # GOLANG
 if ! command -v go >/dev/null 2>&1; then
@@ -52,3 +54,35 @@ if [ ! -e /usr/bin/findomain ]; then
    chmod +x $TOOLS_PATH/findomain
    mv $TOOLS_PATH/findomain /usr/bin/findomain
 fi
+
+# MASSDNS
+if [ ! -e $TOOLS_PATH/massdns/bin/massdns 2>/dev/null ]; then
+   installBanner "Massdns"
+   git clone https://github.com/blechschmidt/massdns.git $TOOLS_PATH/massdns
+   cd $TOOLS_PATH/massdns
+   make 
+   cp bin/massdns /usr/local/bin
+   cd $TOOLS_PATH
+fi
+
+# PUREDNS
+if [ ! -e $HOME/go/bin/puredns ]; then
+   installBanner "PureDNS"
+   go install github.com/d3mondev/puredns/v2@latest
+fi
+
+# GOTATOR
+if [ ! -e $HOME/go/bin/gotator ]; then
+   installBanner "GOtator"
+   go install github.com/Josue87/gotator@latest
+fi
+
+# ANEW
+if [ ! -e $HOME/go/bin/anew ]; then
+   installBanner "Anew"
+   go install -v github.com/tomnomnom/anew@latest
+fi
+
+# Wordlist
+wget https://raw.githubusercontent.com/internetwache/CT_subdomains/master/top-100000.txt -O $TOOLS_PATH/ct_subdomains.txt
+cp wordlist/top-vulnerable-subdomain-names.lst $TOOLS_PATH/
