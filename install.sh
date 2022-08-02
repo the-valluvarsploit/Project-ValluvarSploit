@@ -10,6 +10,8 @@ installBanner(){
    printf "${YELLOW}\n[+] Installing $tool...${RESET}\n"
 }
 
+apt install unzip
+
 # GOLANG
 if ! command -v go >/dev/null 2>&1; then
         LATEST_GO=$(wget -qO- https://golang.org/dl/ | grep -oP 'go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1 | grep -oP 'go[0-9\.]+' | grep -oP '[0-9\.]+' | head -c -2)
@@ -47,6 +49,6 @@ if [ ! -e /usr/bin/findomain ]; then
    installBanner "Findomain"
    curl -L https://github.com/Findomain/Findomain/releases/latest/download/findomain-linux.zip -o $TOOLS_PATH/findomain_latest.zip
    unzip -o $TOOLS_PATH/findomain_latest.zip -d $TOOLS_PATH
-   chmod +x TOOLS_PATH/findomain
+   chmod +x $TOOLS_PATH/findomain
    sudo mv $TOOLS_PATH/findomain /usr/bin/findomain
 fi
