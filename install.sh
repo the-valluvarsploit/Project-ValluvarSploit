@@ -39,7 +39,7 @@ fi
 # ASSETFINDER
 if [ ! -e $HOME/go/bin/assetfinder ]; then
    installBanner "Assetfinder"
-   go install-v github.com/tomnomnom/assetfinder
+   go install -v github.com/tomnomnom/assetfinder
 fi
 
 # FINDOMAIN
