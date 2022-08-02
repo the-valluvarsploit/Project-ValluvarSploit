@@ -13,8 +13,8 @@ installBanner(){
 # GOLANG
 if ! command -v go >/dev/null 2>&1; then
         LATEST_GO=$(wget -qO- https://golang.org/dl/ | grep -oP 'go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1 | grep -oP 'go[0-9\.]+' | grep -oP '[0-9\.]+' | head -c -2)
-        wget -q https://dl.google.com/go/go$LATEST_GO.linux-amd64.tar.gz -O ~/bb/tools/go$LATEST_GO.tar.gz
-        sudo tar -C /usr/local -xzf ~/bb/tools/go$LATEST_GO.tar.gz
+        wget -q https://dl.google.com/go/go$LATEST_GO.linux-amd64.tar.gz -O $TOOLS_PATH/go$LATEST_GO.tar.gz
+        sudo tar -C /usr/local -xzf $TOOLS_PATH/go$LATEST_GO.tar.gz
         echo "" >> ~/.bashrc
         echo "# Go variables" >> ~/.bashrc
         echo 'export GOROOT=/usr/local/go' >> ~/.bashrc
