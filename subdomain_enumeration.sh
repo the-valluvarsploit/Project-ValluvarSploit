@@ -7,10 +7,11 @@ SUBDOMAIN="/programs/$DOMAIN/subdomains"
 if [ ! -d "$SUBDOMAIN" ]; then
         mkdir -p $SUBDOMAIN
 
-        wget https://raw.githubusercontent.com/trickest/resolvers/main/resolvers.txt -O $TOOLS_PATH/resolvers.txt
+#        wget https://raw.githubusercontent.com/trickest/resolvers/main/resolvers.txt -O $TOOLS_PATH/resolvers.txt
+        sort -R $TOOLS_PATH/resolvers.txt | head -n 25 | anew $TOOLS_PATH/resolvers_25.txt
 
 
-        ~/go/bin/amass enum -active -d $DOMAIN -o $SUBDOMAIN/amass.txt
+        ~/go/bin/amass enum -active -d $DOMAIN -rf $TOOLS_PATH/resolvers_25.txt -o $SUBDOMAIN/amass.txt
 
         ~/go/bin/subfinder -d $DOMAIN -all -o $SUBDOMAIN/subfinder.txt
 
