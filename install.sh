@@ -96,8 +96,8 @@ if [ ! -e $HOME/go/bin/nuclei ]; then
 fi
 
 # Wordlist
-wget https://raw.githubusercontent.com/internetwache/CT_subdomains/master/top-100000.txt -O /tmp/ct_temp.txt
+#wget https://raw.githubusercontent.com/internetwache/CT_subdomains/master/top-100000.txt -O /tmp/ct_temp.txt
 
-cat /tmp/ct_temp.txt | cut -d"," -f 2 > $TOOLS_PATH/ct_subdomains.txt
+#cat /tmp/ct_temp.txt | cut -d"," -f 2 > $TOOLS_PATH/ct_subdomains.txt
 
-cp wordlist/top-vulnerable-subdomain-names.lst $TOOLS_PATH/
+#cp wordlist/top-vulnerable-subdomain-names.lst $TOOLS_PATH/
