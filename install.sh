@@ -39,13 +39,13 @@ fi
 # ASSETFINDER
 if [ ! -e $HOME/go/bin/assetfinder ]; then
    installBanner "Assetfinder"
-   go get -u -v github.com/tomnomnom/assetfinder
+   go intall-v github.com/tomnomnom/assetfinder
 fi
 
 # FINDOMAIN
 if [ -e /usr/bin/findomain ]; then
    installBanner "Findomain"
-   curl -L https://github.com/Findomain/Findomain/releases/latest/download/findomain-linux.zip -O $TOOLS_PATH/findomain_latest.zip
+   curl -L https://github.com/Findomain/Findomain/releases/latest/download/findomain-linux.zip -o $TOOLS_PATH/findomain_latest.zip
    unzip -o $TOOLS_PATH/findomain_latest.zip -d $TOOLS_PATH
    sudo mv $TOOLS_PATH/findomain /usr/bin/findomain
 fi
