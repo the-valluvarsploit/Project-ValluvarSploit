@@ -7,3 +7,4 @@
 
 
 nuclei -l $1 -s critical -o $2/nuclei_critical.txt -stats -vv
+nuclei -l $1 -s high -o $2/nuclei_high.txt -stats -vv

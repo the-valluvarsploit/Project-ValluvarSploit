@@ -89,6 +89,11 @@ if [ ! -e $HOME/go/bin/httprobe ]; then
    go install github.com/tomnomnom/httprobe@latest
 fi
 
+# HTTPX
+if [ ! -e $HOME/go/bin/httpx ]; then
+   installBanner "HTTPROBE"
+   go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+fi
 
 if [ ! -e $HOME/go/bin/nuclei ]; then
    installBanner "Nuclei Engine"
