@@ -50,5 +50,5 @@ if [ ! -e /usr/bin/findomain ]; then
    curl -L https://github.com/Findomain/Findomain/releases/latest/download/findomain-linux.zip -o $TOOLS_PATH/findomain_latest.zip
    unzip -o $TOOLS_PATH/findomain_latest.zip -d $TOOLS_PATH
    chmod +x $TOOLS_PATH/findomain
-   sudo mv $TOOLS_PATH/findomain /usr/bin/findomain
+   mv $TOOLS_PATH/findomain /usr/bin/findomain
 fi
