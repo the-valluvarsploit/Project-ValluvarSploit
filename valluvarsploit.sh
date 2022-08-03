@@ -12,7 +12,8 @@ if [ $2 -eq 1]; then
 elif [ $2 -eq 2]; then
 	./httprobe.sh $SUBDOMAIN_PATH $DOMAIN_PATH
 elif [ $2 -eq 3]; then
-	./nuclei.sh $SERVER_PATH $DOMAIN_PATH
+	read -p "ENTER MODE (CRITICAL,HIGH,MEDIUM,LOW,INFO,ALL): " MODE
+	./nuclei.sh $SERVER_PATH $DOMAIN_PATH $MODE
 elif [ $2 -eq 4 ]; then
 	./sensitive_file.sh $SERVER_PATH $DOMAIN_PATH
 fi
