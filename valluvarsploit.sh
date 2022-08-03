@@ -8,13 +8,14 @@ mkdir -p $DOMAIN_PATH
 
 if [ -z $DOMAIN ]; then
 	echo "Subdomain Enumeration"
-	./valluvarsploit.sh example.com 1
+	echo "./valluvarsploit.sh example.com 1"
         echo "HTTPX Resolve"
-        ./valluvarsploit.sh example.com 2
+        echo "./valluvarsploit.sh example.com 2"
         echo "NUCLEI SCAN"
-        ./valluvarsploit.sh example.com 3
+        echo "./valluvarsploit.sh example.com 3"
         echo "SENSITIVE FILE FUZZ"
-        ./valluvarsploit.sh example.com 4
+        echo "./valluvarsploit.sh example.com 4"
+	exit 0
 fi
 
 
