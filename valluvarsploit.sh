@@ -18,11 +18,11 @@ if [ -z $DOMAIN ]; then
 fi
 
 
-if [ $2 -eq 1]; then
+if [ $2 -eq 1 ]; then
 	./subdomain_enumeration.sh $DOMAIN
-elif [ $2 -eq 2]; then
+elif [ $2 -eq 2 ]; then
 	./httprobe.sh $SUBDOMAIN_PATH $DOMAIN_PATH
-elif [ $2 -eq 3]; then
+elif [ $2 -eq 3 ]; then
 	read -p "ENTER MODE (CRITICAL,HIGH,MEDIUM,LOW,INFO,ALL): " MODE
 	./nuclei.sh $SERVER_PATH $DOMAIN_PATH $MODE
 elif [ $2 -eq 4 ]; then
