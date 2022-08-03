@@ -21,11 +21,15 @@ fi
 
 if [ $2 -eq 1 ]; then
 	./subdomain_enumeration.sh $DOMAIN
+	curl -X POST -H 'Content-type: application/json' --data '{"text":"Run Subdomain Eumeration _*`Completed`*_  - '$DOMAIN'"}' "https://hooks.slack.com/services/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"
 elif [ $2 -eq 2 ]; then
 	./httprobe.sh $SUBDOMAIN_PATH $DOMAIN_PATH
+	curl -X POST -H 'Content-type: application/json' --data '{"text":"Run HTTPROBE _*`Completed`*_  - '$DOMAIN'"}' "https://hooks.slack.com/services/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"
 elif [ $2 -eq 3 ]; then
 	read -p "ENTER MODE (CRITICAL,HIGH,MEDIUM,LOW,INFO,ALL): " MODE
 	./nuclei.sh $SERVER_PATH $DOMAIN_PATH $MODE
+	curl -X POST -H 'Content-type: application/json' --data '{"text":"Run NUCLEI '$MODE' _*`Completed`*_  - '$DOMAIN'"}' "https://hooks.slack.com/services/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"
 elif [ $2 -eq 4 ]; then
 	./sensitive_file.sh $SERVER_PATH $DOMAIN_PATH
+	curl -X POST -H 'Content-type: application/json' --data '{"text":"Run SENSITIVE FILE _*`Completed`*_  - '$DOMAIN'"}' "https://hooks.slack.com/services/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"
 fi
