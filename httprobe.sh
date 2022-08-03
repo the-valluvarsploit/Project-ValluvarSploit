@@ -1,4 +1,4 @@
-\#!/bin/bash
+#!/bin/bash
 
 #cat $1 | httpx | tee $2/servers.txt
 
